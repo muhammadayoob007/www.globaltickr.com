@@ -1,0 +1,30 @@
+=====================================================================
+ GOOGLE ADSENSE — code reference for globaltickr.com
+ Publisher ID: pub-9178634132164131
+=====================================================================
+
+1) THE ADSENSE VERIFICATION CODE (already placed in every page's <head>)
+   This is what AdSense scans to approve/verify your site. It is ALREADY
+   inside index.html and all other pages. You do not need to paste it
+   again — just deploy the site. For reference, this is the exact line:
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9178634132164131" crossorigin="anonymous"></script>
+
+
+2) ads.txt  (separate file, must sit at the ROOT of your domain)
+   Already created for you as ads.txt with this single line:
+
+google.com, pub-9178634132164131, DIRECT, f08c47fec0942fa0
+
+   After deploy, it must be reachable at:  https://www.globaltickr.com/ads.txt
+
+
+3) AD UNITS (the actual ad boxes) — do this AFTER AdSense approves you
+   In AdSense: Ads -> By ad unit -> create a "Display ad" -> copy its
+   data-ad-slot number (a 10-digit number). Then in index.html replace
+   each  data-ad-slot="0000000000"  with your real slot number.
+
+   OR simplest: turn on "Auto ads" in AdSense (Ads -> By site) and Google
+   places ads automatically using only the head code above — no slot IDs
+   needed. Recommended to start.
+=====================================================================

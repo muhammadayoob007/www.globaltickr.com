@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXUS Markets — Live Crypto, Gold, Forex Rates & Economic News</title>
+<meta name="description" content="Real-time Bitcoin, crypto, gold and precious metals prices, live forex rates for every world currency, an instant currency converter, plus an economic calendar with forecast, actual results and live countdowns. Free live market terminal.">
+<meta name="keywords" content="bitcoin price, live crypto prices, gold price, silver price, forex rates, currency converter, USD MYR, EUR USD, economic calendar, forex news, real time market data">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.globaltickr.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="NEXUS Markets — Live Crypto, Gold & Forex Terminal">
+<meta property="og:description" content="Real-time Bitcoin, gold, metals and forex rates with a full world-currency converter, economic news and a live economic calendar.">
+<meta property="og:url" content="https://www.globaltickr.com/">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ============================================================= -->
+<!--  GOOGLE ADSENSE — replace ca-pub-9178634132164131 below with    -->
+<!--  YOUR real publisher ID, then replace each data-ad-slot value. -->
+<!-- ============================================================= -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9178634132164131" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-0:#0a0614;--panel:rgba(30,18,58,0.55);--panel-solid:#1b1030;
+  --panel-border:rgba(160,120,255,0.16);--panel-border-hi:rgba(180,140,255,0.42);
+  --text:#ece7ff;--text-dim:#a99fce;--text-faint:#726a94;
+  --violet:#a970ff;--violet-bright:#c79bff;--pink:#ff6ac1;--indigo:#7c6bff;
+  --up:#3ff0a8;--down:#ff5d7e;--gold:#ffce54;
+  --glow:0 0 40px rgba(140,90,255,0.35);--radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg-0);overflow-x:hidden;min-height:100vh;position:relative}
+.bg-wrap{position:fixed;inset:0;z-index:-2;overflow:hidden;background:
+  radial-gradient(1200px 700px at 12% -5%,#2a1560 0%,transparent 55%),
+  radial-gradient(1000px 800px at 100% 0%,#3a1170 0%,transparent 50%),
+  radial-gradient(900px 900px at 50% 120%,#1a0a4a 0%,transparent 55%),
+  linear-gradient(160deg,#0a0614 0%,#120a26 55%,#0d081d 100%)}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.45;mix-blend-mode:screen;animation:float 18s ease-in-out infinite}
+.blob.b1{width:520px;height:520px;background:#7a3cff;top:-120px;left:-80px}
+.blob.b2{width:460px;height:460px;background:#ff4fb0;bottom:-140px;right:-60px;animation-delay:-6s}
+.blob.b3{width:380px;height:380px;background:#4d6bff;top:40%;left:55%;animation-delay:-11s;opacity:.3}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-30px) scale(1.08)}66%{transform:translate(-30px,25px) scale(.95)}}
+.grid-overlay{position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(160,120,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(160,120,255,.035) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(circle at 50% 30%,#000 0%,transparent 80%)}
+.ticker{position:sticky;top:0;z-index:50;background:rgba(12,7,26,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--panel-border);overflow:hidden;height:44px;display:flex;align-items:center}
+.ticker-track{display:flex;gap:38px;white-space:nowrap;animation:scroll 70s linear infinite;padding-left:100%}
+.ticker:hover .ticker-track{animation-play-state:paused}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+.tk{font-family:'JetBrains Mono',monospace;font-size:13px;display:inline-flex;align-items:center;gap:8px;cursor:pointer}
+.tk b{color:var(--text);font-weight:600}.tk .px{color:var(--text-dim)}.tk .up{color:var(--up)}.tk .down{color:var(--down)}
+.wrap{max-width:1500px;margin:0 auto;padding:26px 26px 60px}
+header.top{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:22px}
+.brand{display:flex;align-items:center;gap:14px}
+.logo{width:46px;height:46px;border-radius:13px;background:linear-gradient(135deg,#a970ff,#ff6ac1);display:grid;place-items:center;font-family:'Space Grotesk';font-weight:700;font-size:22px;color:#12071f;box-shadow:var(--glow)}
+.brand h1{font-family:'Space Grotesk';font-size:22px;letter-spacing:.5px;font-weight:700}
+.brand .sub{font-size:11px;color:var(--text-faint);letter-spacing:2px;text-transform:uppercase;margin-top:2px}
+.clockbox{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.livepill{display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:var(--panel);border:1px solid var(--panel-border);font-size:12px;color:var(--text-dim)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--up);box-shadow:0 0 10px var(--up);animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.clock{font-family:'JetBrains Mono';font-size:15px;color:var(--text);letter-spacing:1px}
+.tzsel{background:transparent;border:none;color:var(--violet-bright);font-size:12px;font-family:inherit;cursor:pointer;outline:none;font-weight:600}
+.tzsel option{background:#1b1030;color:var(--text)}
+.sessions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.sess{flex:1;min-width:150px;background:var(--panel);border:1px solid var(--panel-border);border-radius:14px;padding:14px 16px;backdrop-filter:blur(10px)}
+.sess .name{font-size:12px;color:var(--text-dim);letter-spacing:1px;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.sess .st{font-family:'Space Grotesk';font-weight:600;font-size:16px;margin-top:6px}
+.sess .lt{font-family:'JetBrains Mono';font-size:11px;color:var(--text-faint);margin-top:3px}
+.cd-timer{margin-top:8px;font-family:'JetBrains Mono';font-size:16px;font-weight:700;letter-spacing:1px;display:flex;align-items:baseline;gap:7px}
+.cd-timer .cd-lbl{font-size:9px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--text-faint)}
+.cd-timer.o{color:var(--up)}.cd-timer.c{color:var(--violet-bright)}
+.sess.open{border-color:rgba(63,240,168,.4)}.sess.open .st{color:var(--up)}.sess.closed .st{color:var(--text-faint)}
+.sdot{width:8px;height:8px;border-radius:50%}.sdot.on{background:var(--up);box-shadow:0 0 8px var(--up);animation:pulse 1.6s infinite}.sdot.off{background:#4a4266}
+.cols{display:grid;grid-template-columns:1.05fr 1.1fr .95fr;gap:20px}
+@media(max-width:1080px){.cols{grid-template-columns:1fr 1fr}}
+@media(max-width:720px){.cols{grid-template-columns:1fr}}
+.stack{display:flex;flex-direction:column;gap:20px}
+.panel{background:var(--panel);border:1px solid var(--panel-border);border-radius:var(--radius);backdrop-filter:blur(14px);overflow:hidden;box-shadow:0 20px 50px -30px rgba(0,0,0,.8)}
+.panel-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--panel-border)}
+.panel-head h2{font-family:'Space Grotesk';font-size:15px;font-weight:600;letter-spacing:.4px;display:flex;align-items:center;gap:10px}
+.panel-head .ico{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-size:14px;background:linear-gradient(135deg,rgba(169,112,255,.28),rgba(255,106,193,.22));border:1px solid var(--panel-border-hi)}
+.panel-head .upd{font-size:10px;color:var(--text-faint);font-family:'JetBrains Mono'}
+.rows{padding:6px 8px 10px}
+.row{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:12px;padding:11px 12px;border-radius:11px;transition:background .18s;cursor:pointer}
+.row:hover{background:rgba(160,120,255,.1)}
+.row .a{display:flex;align-items:center;gap:11px;min-width:0}
+.row .sym{font-family:'Space Grotesk';font-weight:600;font-size:14px}
+.row .nm{font-size:11px;color:var(--text-faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .price{font-family:'JetBrains Mono';font-size:14px;text-align:right;font-weight:500;border-radius:6px;padding:2px 5px}
+.row .chg{font-family:'JetBrains Mono';font-size:12px;text-align:right;padding:3px 8px;border-radius:7px;min-width:66px}
+.chg.up{color:var(--up);background:rgba(63,240,168,.1)}.chg.down{color:var(--down);background:rgba(255,93,126,.1)}.chg.flat{color:var(--text-faint);background:rgba(160,120,255,.06)}
+.coinbadge{position:relative;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-family:'Space Grotesk';font-weight:700;font-size:11px;color:#fff;flex-shrink:0;overflow:hidden}
+.coinbadge img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mflag{width:26px;height:19px;border-radius:4px;display:grid;place-items:center;font-size:13px;background:rgba(160,120,255,.12);border:1px solid var(--panel-border)}
+.flash-up{animation:fu .9s}.flash-down{animation:fd .9s}
+@keyframes fu{0%{background:rgba(63,240,168,.4);color:#eafff5}100%{background:transparent}}
+@keyframes fd{0%{background:rgba(255,93,126,.4);color:#fff}100%{background:transparent}}
+/* market clock */
+.clockpanel{padding:16px}
+.clockwrap{display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:center}
+.clocksvg{width:248px;height:248px;flex-shrink:0}
+.clocklegend{flex:1;min-width:150px;display:flex;flex-direction:column;gap:11px}
+.leg{display:flex;align-items:center;gap:10px;font-size:12px}
+.leg .cdot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.leg .lname{font-family:'Space Grotesk';font-weight:600;width:64px}
+.leg .lstat{font-family:'JetBrains Mono';font-size:11px}
+.leg .lstat.o{color:var(--up)}.leg .lstat.c{color:var(--text-faint)}
+.leg .lnext{font-size:10px;color:var(--text-faint);font-family:'JetBrains Mono'}
+/* converter */
+.conv{padding:18px}
+.conv .fld{margin-bottom:14px}
+.conv label{font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:7px}
+.conv .ig{display:flex;gap:10px}
+.conv input,.conv select{font-family:'JetBrains Mono';background:rgba(10,6,20,.6);border:1px solid var(--panel-border);color:var(--text);border-radius:11px;padding:13px 14px;font-size:15px;outline:none;transition:border .18s}
+.conv input:focus,.conv select:focus{border-color:var(--violet)}
+.conv input{flex:1;min-width:0}.conv select{width:135px;cursor:pointer}
+.conv .swap{width:100%;margin:2px 0 12px;background:linear-gradient(135deg,rgba(169,112,255,.2),rgba(255,106,193,.16));border:1px solid var(--panel-border-hi);color:var(--violet-bright);border-radius:11px;padding:9px;cursor:pointer;font-size:13px;font-weight:600}
+.conv .swap:hover{background:linear-gradient(135deg,rgba(169,112,255,.34),rgba(255,106,193,.28))}
+.conv .result{background:linear-gradient(135deg,rgba(169,112,255,.14),rgba(124,107,255,.1));border:1px solid var(--panel-border-hi);border-radius:14px;padding:18px;text-align:center;margin-top:4px}
+.conv .result .big{font-family:'Space Grotesk';font-size:28px;font-weight:700;color:#fff;word-break:break-word}
+.conv .result .rate{font-size:12px;color:var(--text-dim);margin-top:6px;font-family:'JetBrains Mono'}
+.adbox{max-width:1500px;margin:22px auto 0;padding:0 26px}
+.adinner{background:var(--panel);border:1px solid var(--panel-border);border-radius:14px;padding:10px;text-align:center;min-height:100px;display:flex;flex-direction:column;justify-content:center;backdrop-filter:blur(10px)}
+.adlabel{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text-faint);margin-bottom:6px}
+.adinner ins{display:block}
+.wide{margin-top:20px;display:grid;grid-template-columns:1.2fr 1fr;gap:20px}
+@media(max-width:900px){.wide{grid-template-columns:1fr}}
+.news-item{display:flex;gap:13px;padding:14px 16px;border-bottom:1px solid rgba(160,120,255,.08);transition:background .18s}
+.news-item:hover{background:rgba(160,120,255,.06)}.news-item:last-child{border-bottom:none}
+.news-item .imp{width:4px;border-radius:3px;flex-shrink:0}
+.imp.high{background:var(--down)}.imp.med{background:var(--gold)}.imp.low{background:var(--indigo)}
+.news-item .body h3{font-size:13.5px;font-weight:600;line-height:1.4;color:var(--text)}
+.news-item .body .meta{font-size:11px;color:var(--text-faint);margin-top:5px;font-family:'JetBrains Mono';display:flex;gap:10px;flex-wrap:wrap}
+/* calendar */
+.cal-day{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--violet-bright);padding:12px 16px 6px;font-weight:600}
+.cal-row{display:grid;grid-template-columns:56px 44px 1fr auto;gap:10px;align-items:center;padding:11px 16px;border-bottom:1px solid rgba(160,120,255,.07);font-size:13px}
+.cal-row.soon{background:linear-gradient(90deg,rgba(255,93,126,.12),transparent)}
+.cal-time{font-family:'JetBrains Mono';font-size:12px;color:var(--text-dim);white-space:nowrap}
+.cal-cur{font-family:'Space Grotesk';font-weight:600;font-size:11px;padding:2px 7px;border-radius:6px;background:rgba(160,120,255,.14);text-align:center}
+.cal-main{min-width:0}
+.cal-title{font-size:12.5px;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:flex;align-items:center;gap:7px}
+.cal-imp{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.imp-h{background:var(--down);box-shadow:0 0 6px var(--down)}.imp-m{background:var(--gold)}.imp-l{background:var(--indigo)}
+.cal-fig{font-size:10.5px;color:var(--text-faint);font-family:'JetBrains Mono';margin-top:4px;display:flex;gap:12px;flex-wrap:wrap}
+.cal-fig b{color:var(--text-dim);font-weight:500}
+.cal-fig .act-up{color:var(--up)}.cal-fig .act-down{color:var(--down)}
+.cal-status{text-align:right;font-family:'JetBrains Mono';font-size:11px;white-space:nowrap}
+.cal-status .cd{color:var(--down);font-weight:700;font-size:13px;animation:pulse 1s infinite}
+.cal-status .rel{color:var(--up);font-weight:600}
+.cal-status .up{color:var(--text-faint)}
+.cal-row{cursor:pointer}.cal-row:hover{background:rgba(160,120,255,.08)}
+.evgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:18px 0}
+.evgrid .c{background:rgba(10,6,20,.5);border:1px solid var(--panel-border);border-radius:12px;padding:14px;text-align:center}
+.evgrid .c .l{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--text-faint)}
+.evgrid .c .v{font-family:'JetBrains Mono';font-size:20px;font-weight:700;margin-top:6px}
+.news-item{cursor:pointer}
+.loading{padding:26px;text-align:center;color:var(--text-faint);font-size:13px;font-family:'JetBrains Mono'}
+.spin{display:inline-block;width:14px;height:14px;border:2px solid rgba(160,120,255,.3);border-top-color:var(--violet);border-radius:50%;animation:sp .7s linear infinite;vertical-align:middle;margin-right:8px}
+@keyframes sp{to{transform:rotate(360deg)}}
+footer{margin-top:40px;text-align:center;color:var(--text-faint);font-size:11px;line-height:1.7}
+footer nav{display:flex;gap:8px 22px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+footer nav a{color:var(--text-dim);text-decoration:none;font-size:12px;transition:color .18s;cursor:pointer}
+footer nav a:hover{color:var(--violet-bright)}
+footer .disc{max-width:800px;margin:0 auto;opacity:.75}
+/* modal */
+.modal-bg{position:fixed;inset:0;z-index:100;background:rgba(6,3,14,.72);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:20px}
+.modal-bg.show{display:flex}
+.modal{background:linear-gradient(160deg,#1b1030,#150b28);border:1px solid var(--panel-border-hi);border-radius:20px;max-width:640px;width:100%;max-height:88vh;overflow-y:auto;box-shadow:0 40px 100px -20px rgba(0,0,0,.9)}
+.modal-head{display:flex;align-items:center;justify-content:space-between;padding:20px 22px;border-bottom:1px solid var(--panel-border);position:sticky;top:0;background:linear-gradient(160deg,#1b1030,#170c29);z-index:2}
+.modal-head h3{font-family:'Space Grotesk';font-size:18px;display:flex;align-items:center;gap:12px}
+.modal-close{background:rgba(160,120,255,.12);border:1px solid var(--panel-border);color:var(--text-dim);width:34px;height:34px;border-radius:10px;cursor:pointer;font-size:18px;line-height:1}
+.modal-close:hover{color:#fff;background:rgba(255,93,126,.2)}
+.modal-body{padding:22px}
+.mstat{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:18px}
+.mstat .s{}
+.mstat .s .l{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--text-faint)}
+.mstat .s .v{font-family:'JetBrains Mono';font-size:18px;font-weight:600;margin-top:3px}
+.chartbox{background:rgba(10,6,20,.5);border:1px solid var(--panel-border);border-radius:14px;padding:14px}
+.modal-body p{font-size:13.5px;line-height:1.75;color:var(--text-dim);margin-bottom:13px}
+.modal-body h4{font-family:'Space Grotesk';font-size:15px;margin:18px 0 8px;color:var(--text)}
+.modal-body a.mail{color:var(--violet-bright);text-decoration:none}
+.mtag{font-size:10px;padding:3px 9px;border-radius:999px;background:rgba(63,240,168,.14);color:var(--up);letter-spacing:1px;font-family:'JetBrains Mono'}
+/* AI assistant */
+.asst-launch{position:fixed;right:24px;bottom:24px;z-index:90;width:60px;height:60px;border-radius:50%;border:none;cursor:pointer;background:linear-gradient(135deg,#a970ff,#ff6ac1);box-shadow:0 10px 30px -6px rgba(169,112,255,.7),var(--glow);font-size:26px;display:grid;place-items:center;transition:transform .2s}
+.asst-launch:hover{transform:scale(1.08)}
+.asst-launch span{animation:pulse 2.4s infinite}
+.asst{position:fixed;right:24px;bottom:96px;z-index:91;width:370px;max-width:calc(100vw - 32px);height:540px;max-height:calc(100vh - 130px);background:linear-gradient(160deg,#1c1132,#150b26);border:1px solid var(--panel-border-hi);border-radius:20px;box-shadow:0 40px 90px -20px rgba(0,0,0,.85);display:none;flex-direction:column;overflow:hidden}
+.asst.show{display:flex;animation:asstin .22s ease}
+@keyframes asstin{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+.asst-head{display:flex;align-items:center;justify-content:space-between;padding:15px 16px;border-bottom:1px solid var(--panel-border);background:linear-gradient(135deg,rgba(169,112,255,.16),rgba(255,106,193,.1))}
+.asst-ttl{display:flex;align-items:center;gap:11px}
+.asst-ava{width:36px;height:36px;border-radius:11px;background:linear-gradient(135deg,#a970ff,#ff6ac1);display:grid;place-items:center;font-size:18px;box-shadow:var(--glow)}
+.asst-ttl b{font-family:'Space Grotesk';font-size:14px;display:block}
+.asst-ttl span{font-size:10.5px;color:var(--text-faint)}
+.asst-x{background:rgba(160,120,255,.12);border:1px solid var(--panel-border);color:var(--text-dim);width:30px;height:30px;border-radius:9px;cursor:pointer;font-size:17px}
+.asst-x:hover{color:#fff;background:rgba(255,93,126,.2)}
+.asst-msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px}
+.abub{max-width:85%;padding:11px 14px;border-radius:14px;font-size:13.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word}
+.abub.bot{align-self:flex-start;background:rgba(160,120,255,.12);border:1px solid var(--panel-border);border-bottom-left-radius:4px;color:var(--text)}
+.abub.me{align-self:flex-end;background:linear-gradient(135deg,rgba(169,112,255,.32),rgba(124,107,255,.28));border-bottom-right-radius:4px;color:#fff}
+.abub b{color:var(--violet-bright);font-family:'JetBrains Mono'}
+.abub .up{color:var(--up)}.abub .down{color:var(--down)}
+.asst-quick{display:flex;gap:7px;flex-wrap:wrap;padding:0 16px 10px}
+.qchip{font-size:11px;padding:6px 11px;border-radius:999px;background:rgba(160,120,255,.1);border:1px solid var(--panel-border);color:var(--text-dim);cursor:pointer;white-space:nowrap;transition:.15s}
+.qchip:hover{background:rgba(169,112,255,.24);color:#fff;border-color:var(--panel-border-hi)}
+.asst-in{display:flex;gap:8px;padding:12px 14px;border-top:1px solid var(--panel-border)}
+.asst-in input{flex:1;background:rgba(10,6,20,.6);border:1px solid var(--panel-border);color:var(--text);border-radius:12px;padding:12px 14px;font-size:13.5px;outline:none;font-family:inherit}
+.asst-in input:focus{border-color:var(--violet)}
+.asst-in button{width:44px;border:none;border-radius:12px;background:linear-gradient(135deg,#a970ff,#ff6ac1);color:#fff;font-size:16px;cursor:pointer}
+.asst-in button:hover{filter:brightness(1.12)}
+@media(max-width:520px){.asst{bottom:88px;right:16px;left:16px;width:auto}.asst-launch{right:16px;bottom:16px}}
+</style>
+</head>
+<body>
+<div class="bg-wrap"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+<div class="grid-overlay"></div>
+
+<div class="ticker"><div class="ticker-track" id="ticker"><span class="tk"><span class="px">Loading live market data…</span></span></div></div>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <div class="logo">N</div>
+      <div><h1>NEXUS <span style="color:var(--violet-bright)">Markets</span></h1><div class="sub">globaltickr.com · Live Terminal</div></div>
+    </div>
+    <div class="clockbox">
+      <div class="livepill"><span class="dot"></span> LIVE · <span id="refresh-in">·</span></div>
+      <div class="livepill"><span id="utcclock" class="clock">--:--:--</span> UTC</div>
+      <div class="livepill"><span id="localclock" class="clock">--:--:--</span> <select id="tzsel" class="tzsel"></select></div>
+    </div>
+  </header>
+
+  <div class="sessions" id="sessions"></div>
+</div>
+
+<!-- AD SLOT 1 -->
+<div class="adbox"><div class="adinner"><div class="adlabel">Advertisement</div>
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9178634132164131" data-ad-slot="0000000000" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div></div>
+
+<div class="wrap" style="padding-top:20px">
+  <div class="cols">
+    <!-- LEFT: Forex + Market Clock -->
+    <div class="stack">
+      <div class="panel">
+        <div class="panel-head"><h2><span class="ico">💱</span> Forex Majors</h2><span class="upd" id="fx-upd">—</span></div>
+        <div class="rows" id="forex"><div class="loading"><span class="spin"></span>Fetching forex…</div></div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><h2><span class="ico">🕓</span> Market Sessions Clock</h2><select id="tzsel2" class="tzsel"></select></div>
+        <div class="clockpanel"><div class="clockwrap">
+          <svg class="clocksvg" id="clocksvg" viewBox="0 0 210 210"></svg>
+          <div class="clocklegend" id="clocklegend"></div>
+        </div></div>
+      </div>
+    </div>
+    <!-- MIDDLE: Crypto -->
+    <div class="panel">
+      <div class="panel-head"><h2><span class="ico">₿</span> Crypto <span class="mtag">LIVE</span></h2><span class="upd" id="cx-upd">—</span></div>
+      <div class="rows" id="crypto"><div class="loading"><span class="spin"></span>Fetching crypto…</div></div>
+    </div>
+    <!-- RIGHT: Metals + Converter -->
+    <div class="stack">
+      <div class="panel">
+        <div class="panel-head"><h2><span class="ico">🥇</span> Metals <span class="mtag">LIVE</span></h2><span class="upd" id="mt-upd">—</span></div>
+        <div class="rows" id="metals"><div class="loading"><span class="spin"></span>Fetching metals…</div></div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><h2><span class="ico">🔁</span> Currency Converter</h2></div>
+        <div class="conv">
+          <div class="fld"><label>Amount</label><div class="ig"><input id="amt" type="number" value="1000" min="0"><select id="from"></select></div></div>
+          <button class="swap" id="swap">⇅ Swap</button>
+          <div class="fld"><label>Converted to</label><div class="ig"><input id="res-amt" type="text" readonly value="—"><select id="to"></select></div></div>
+          <div class="result"><div class="big" id="conv-big">—</div><div class="rate" id="conv-rate">Select currencies</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AD SLOT 2 -->
+  <div class="adinner" style="margin-top:22px"><div class="adlabel">Advertisement</div>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9178634132164131" data-ad-slot="0000000000" data-ad-format="fluid" data-ad-layout-key="-6t+ed+2i-1n-4w"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+  <div class="wide">
+    <div class="panel">
+      <div class="panel-head"><h2><span class="ico">📰</span> Economic News</h2><span class="upd" id="nw-upd">—</span></div>
+      <div id="news"><div class="loading"><span class="spin"></span>Fetching headlines…</div></div>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><h2><span class="ico">📅</span> Economic Calendar <span class="mtag" style="background:rgba(255,93,126,.16);color:var(--down)">HIGH IMPACT</span></h2><span class="upd" id="ca-upd">UTC+8</span></div>
+      <div id="calendar"><div class="loading"><span class="spin"></span>Loading events…</div></div>
+    </div>
+  </div>
+
+  <footer>
+    <nav>
+      <a href="insights.html">Market Insights</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="disc">NEXUS Markets is an independent, real-time market information service. Prices are aggregated from public market-data providers (Coinbase for crypto, precious-metals and exchange-rate feeds for gold and forex) and refresh automatically. All data is provided for general information only and may be delayed or inaccurate — nothing on this site is financial, investment or trading advice. Trading and investing carry a high level of risk. Always do your own research.</div>
+    <div style="margin-top:10px">© 2026 NEXUS Markets · globaltickr.com · All rights reserved</div>
+  </footer>
+</div>
+
+<!-- AI ASSISTANT -->
+<button class="asst-launch" id="asst-launch" aria-label="Open assistant"><span>✨</span></button>
+<div class="asst" id="asst">
+  <div class="asst-head">
+    <div class="asst-ttl"><span class="asst-ava">✨</span><div><b>NEXUS AI Assistant</b><span>Live prices · rates · sessions · news</span></div></div>
+    <button class="asst-x" id="asst-close" aria-label="Close">×</button>
+  </div>
+  <div class="asst-msgs" id="asst-msgs"></div>
+  <div class="asst-quick" id="asst-quick"></div>
+  <div class="asst-in"><input id="asst-input" placeholder="Ask about any price, rate or market…" autocomplete="off"><button id="asst-send" aria-label="Send">➤</button></div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-bg" id="modal-bg"><div class="modal"><div class="modal-head"><h3 id="modal-title">—</h3><button class="modal-close" id="modal-close">×</button></div><div class="modal-body" id="modal-body"></div></div></div>
+
+<script>
+const $=s=>document.querySelector(s);
+const fmt=(n,d=2)=>n==null||isNaN(n)?'—':Number(n).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
+const pct=n=>(n>=0?'+':'')+fmt(n,2)+'%';
+const chgClass=n=>n>0.0001?'up':n<-0.0001?'down':'flat';
+const now=()=>new Date().toLocaleTimeString('en-GB',{hour12:false});
+let USER_TZ=8; // UTC+8 (user-selectable via the timezone toggle)
+const CUR_NAMES={USD:'US Dollar',EUR:'Euro',GBP:'British Pound',JPY:'Japanese Yen',CHF:'Swiss Franc',CAD:'Canadian Dollar',AUD:'Australian Dollar',NZD:'New Zealand Dollar',CNY:'Chinese Yuan',HKD:'Hong Kong Dollar',SGD:'Singapore Dollar',INR:'Indian Rupee',MYR:'Malaysian Ringgit',AED:'UAE Dirham',SAR:'Saudi Riyal',KRW:'South Korean Won',THB:'Thai Baht',IDR:'Indonesian Rupiah',PHP:'Philippine Peso',TRY:'Turkish Lira',ZAR:'South African Rand',MXN:'Mexican Peso',BRL:'Brazilian Real',RUB:'Russian Ruble',PLN:'Polish Zloty',SEK:'Swedish Krona',NOK:'Norwegian Krone',DKK:'Danish Krone',PKR:'Pakistani Rupee',EGP:'Egyptian Pound',NGN:'Nigerian Naira',VND:'Vietnamese Dong',BDT:'Bangladeshi Taka'};
+const FLAGS={USD:'🇺🇸',EUR:'🇪🇺',GBP:'🇬🇧',JPY:'🇯🇵',CHF:'🇨🇭',CAD:'🇨🇦',AUD:'🇦🇺',NZD:'🇳🇿',CNY:'🇨🇳',HKD:'🇭🇰',XAU:'🥇',XAG:'🥈',XPT:'⚪',XPD:'⚫'};
+let prevStore={};
+const FB={
+ metals:{XAU:4650.6,XAG:69.1,XPT:1305,XPD:1195},
+ rates:{USD:1,EUR:0.856,GBP:0.733,JPY:158.9,CHF:0.801,CAD:1.379,AUD:0.72,NZD:0.597,CNY:7.13,HKD:7.83,SGD:1.29,INR:83.1,MYR:4.04,AED:3.67,SAR:3.75,KRW:1338,THB:34.2,IDR:15680,PHP:56.4,TRY:34.8,ZAR:18.1,MXN:18.9,BRL:5.42,RUB:92.5,PLN:3.98,SEK:10.6,NOK:10.8,DKK:6.87,PKR:278,EGP:49.2,NGN:1580,VND:24850,BDT:119},
+ crypto:[['BTC','Bitcoin',77000,-1.1],['ETH','Ethereum',2418,-0.8],['BNB','BNB',900,0.4],['SOL','Solana',94,-1.6],['XRP','XRP',2.10,-0.9],['ADA','Cardano',0.60,0.5],['DOGE','Dogecoin',0.17,-2.1],['TRX','TRON',0.31,0.2],['AVAX','Avalanche',21,-1.4],['LINK','Chainlink',15.5,0.8]]
+};
+
+/* update a price/chg cell in place with blink */
+function setCell(k,price,priceStr,chg){
+ const row=document.querySelector(`[data-k="${k}"]`);if(!row)return;
+ const pe=row.querySelector('.price'),ce=row.querySelector('.chg');
+ if(pe){const prev=prevStore[k];pe.textContent=priceStr;
+  if(prev!=null&&price!==prev){pe.classList.remove('flash-up','flash-down');void pe.offsetWidth;pe.classList.add(price>prev?'flash-up':'flash-down');}
+  prevStore[k]=price;}
+ if(ce&&chg!=null){ce.textContent=pct(chg);ce.className='chg '+chgClass(chg);}
+}
+
+/* =====================================================================
+   OPTIONAL — REAL-TIME FOREX + METALS STREAMING (Twelve Data)
+   Free forex/metals APIs update slowly. For true per-second streaming
+   like the crypto panel, get a FREE key at https://twelvedata.com
+   (1-minute signup, no credit card) and paste it between the quotes:
+   ===================================================================== */
+const TWELVEDATA_KEY='';   // <-- paste your Twelve Data API key here
+let tdForexLive=false,tdMetalsLive=false,tdWS=null;
+const fxBase={};
+const TD_MAP={'EUR/USD':['fx','EUR/USD'],'GBP/USD':['fx','GBP/USD'],'USD/JPY':['fx','USD/JPY'],'USD/CHF':['fx','USD/CHF'],'USD/CAD':['fx','USD/CAD'],'AUD/USD':['fx','AUD/USD'],'NZD/USD':['fx','NZD/USD'],'XAU/USD':['mt','XAU'],'XAG/USD':['mt','XAG'],'XPT/USD':['mt','XPT'],'XPD/USD':['mt','XPD']};
+function pushForex(sym,price){if(fxBase[sym]==null)fxBase[sym]=price;const ch=(price-fxBase[sym])/fxBase[sym]*100;setCell('fx-'+sym,price,fmt(price,price>50?3:5),ch);const t=tick.fx.find(x=>x.s===sym);if(t)t.p=price;}
+function startTwelveData(){
+ if(!TWELVEDATA_KEY)return;
+ try{
+  tdWS=new WebSocket('wss://ws.twelvedata.com/v1/quotes/price?apikey='+encodeURIComponent(TWELVEDATA_KEY));
+  tdWS.onopen=()=>tdWS.send(JSON.stringify({action:'subscribe',params:{symbols:Object.keys(TD_MAP).join(',')}}));
+  tdWS.onmessage=e=>{try{const m=JSON.parse(e.data);if(m.event==='price'&&m.symbol&&m.price!=null){const t=TD_MAP[m.symbol];if(!t)return;const p=parseFloat(m.price);
+    if(t[0]==='fx'){tdForexLive=true;pushForex(t[1],p);$('#fx-upd').textContent='live stream '+now();}
+    else{tdMetalsLive=true;const n=(METALS.find(x=>x[0]===t[1])||[t[1],t[1]])[1];pushMetal(t[1],n,p);$('#mt-upd').textContent='live stream '+now();}
+  }}catch(_){}}
+  tdWS.onclose=()=>{tdForexLive=false;tdMetalsLive=false;setTimeout(startTwelveData,10000);}
+  tdWS.onerror=()=>{try{tdWS.close()}catch(_){}}
+ }catch(e){}
+}
+
+/* ---------- CLOCKS + TIMEZONE TOGGLE ---------- */
+function tickClock(){const d=new Date();$('#utcclock').textContent=d.toUTCString().slice(17,25);
+ const utcMs=d.getTime()+d.getTimezoneOffset()*60000;const loc=new Date(utcMs+USER_TZ*3600000);
+ $('#localclock').textContent=loc.toTimeString().slice(0,8);}
+setInterval(tickClock,1000);tickClock();
+const TZS=[['UTC−8 Los Angeles',-8],['UTC−5 New York',-5],['UTC±0 London',0],['UTC+1 Frankfurt',1],['UTC+3 Moscow',3],['UTC+4 Dubai',4],['UTC+5 Karachi',5],['UTC+5:30 Mumbai',5.5],['UTC+7 Bangkok',7],['UTC+8 KL / Singapore',8],['UTC+9 Tokyo',9],['UTC+10 Sydney',10],['UTC+12 Auckland',12]];
+function applyTz(v){USER_TZ=parseFloat(v);['#tzsel','#tzsel2'].forEach(id=>{const s=$(id);if(s)s.value=v;});tickClock();renderSessions();if(EVENTS.length)renderCalendar();}
+function initTz(){['#tzsel','#tzsel2'].forEach(id=>{const sel=$(id);if(!sel)return;sel.innerHTML=TZS.map(([l,o])=>`<option value="${o}">${l}</option>`).join('');sel.value='8';sel.addEventListener('change',()=>applyTz(sel.value));});}
+initTz();
+
+/* ---------- SESSIONS (UTC windows) ---------- */
+const SESS=[
+ {n:'Sydney',o:21,c:6,col:'#ff6ac1',r:78},
+ {n:'Tokyo',o:0,c:9,col:'#a970ff',r:66},
+ {n:'London',o:7,c:16,col:'#7c6bff',r:54},
+ {n:'New York',o:13.5,c:21,col:'#3ff0a8',r:42}
+];
+function utcNowH(){const d=new Date();return d.getUTCHours()+d.getUTCMinutes()/60+d.getUTCSeconds()/3600;}
+function inSession(h,o,c){return o<c?(h>=o&&h<c):(h>=o||h<c);}
+function hoursUntil(h,target){let d=(target-h+24)%24;return d;}
+function fmtLocal(utcH){let l=((utcH+USER_TZ)%24+24)%24;let hh=Math.floor(l),mm=Math.round((l-hh)*60);if(mm===60){mm=0;hh=(hh+1)%24;}return String(hh).padStart(2,'0')+':'+String(mm).padStart(2,'0');}
+function fmtDur(h){const H=Math.floor(h),M=Math.round((h%1)*60);return (H>0?H+'h ':'')+M+'m';}
+function fmtHMS(h){let s=Math.max(0,Math.round(h*3600));const hh=Math.floor(s/3600);s-=hh*3600;const mm=Math.floor(s/60);const ss=s-mm*60;return String(hh).padStart(2,'0')+':'+String(mm).padStart(2,'0')+':'+String(ss).padStart(2,'0');}
+function renderSessions(){
+ const h=utcNowH();
+ $('#sessions').innerHTML=SESS.map(s=>{
+  const open=inSession(h,s.o,s.c);
+  const next=open?hoursUntil(h,s.c):hoursUntil(h,s.o);
+  return `<div class="sess ${open?'open':'closed'}"><div class="name"><span class="sdot ${open?'on':'off'}"></span>${s.n}</div><div class="st">${open?'OPEN':'CLOSED'}</div><div class="lt">Your time: ${fmtLocal(s.o)}–${fmtLocal(s.c)}</div><div class="cd-timer ${open?'o':'c'}"><span class="cd-lbl">${open?'closes in':'opens in'}</span> ${fmtHMS(next)}</div></div>`;
+ }).join('');
+ renderClock(h);
+}
+/* circular clock */
+function polar(cx,cy,r,hour){const a=(hour/24)*2*Math.PI;return[cx+r*Math.sin(a),cy-r*Math.cos(a)];}
+function arc(cx,cy,r,o,c){const span=(c-o+24)%24;const large=span>12?1:0;const[x1,y1]=polar(cx,cy,r,o),[x2,y2]=polar(cx,cy,r,c);return `M ${x1.toFixed(1)} ${y1.toFixed(1)} A ${r} ${r} 0 ${large} 1 ${x2.toFixed(1)} ${y2.toFixed(1)}`;}
+function renderClock(h){
+ const cx=105,cy=105;const localH=(h+USER_TZ)%24; // clock shows user's local day
+ let svg='';
+ // hour ticks
+ for(let i=0;i<24;i++){const[x1,y1]=polar(cx,cy,95,i),[x2,y2]=polar(cx,cy,i%6===0?86:90,i);svg+=`<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="rgba(160,120,255,${i%6===0?.5:.22})" stroke-width="${i%6===0?1.6:1}"/>`;
+  if(i%6===0){const[lx,ly]=polar(cx,cy,74,i);svg+=`<text x="${lx.toFixed(1)}" y="${(ly+3).toFixed(1)}" fill="#726a94" font-size="8" font-family="JetBrains Mono" text-anchor="middle">${String(i).padStart(2,'0')}</text>`;}
+ }
+ // session arcs (converted to local hours)
+ SESS.forEach(s=>{const lo=(s.o+USER_TZ)%24,lc=(s.c+USER_TZ)%24;const open=inSession(h,s.o,s.c);
+  svg+=`<path d="${arc(cx,cy,s.r,lo,lc)}" fill="none" stroke="${s.col}" stroke-width="7" stroke-linecap="round" opacity="${open?1:.32}"/>`;});
+ // hand
+ const[hx,hy]=polar(cx,cy,88,localH);
+ svg+=`<line x1="${cx}" y1="${cy}" x2="${hx.toFixed(1)}" y2="${hy.toFixed(1)}" stroke="#fff" stroke-width="2"/><circle cx="${cx}" cy="${cy}" r="4" fill="#fff"/>`;
+ svg+=`<text x="${cx}" y="${cy+26}" fill="#ece7ff" font-size="15" font-family="JetBrains Mono" font-weight="700" text-anchor="middle">${fmtLocal(h)}</text>`;
+ $('#clocksvg').innerHTML=svg;
+ // legend
+ $('#clocklegend').innerHTML=SESS.map(s=>{const open=inSession(h,s.o,s.c);const next=open?hoursUntil(h,s.c):hoursUntil(h,s.o);
+  return `<div class="leg"><span class="cdot" style="background:${s.col};box-shadow:${open?'0 0 8px '+s.col:'none'}"></span><span class="lname">${s.n}</span><span class="lstat ${open?'o':'c'}">${open?'OPEN':'closed'}</span><span class="lnext">${fmtHMS(next)}</span></div>`;}).join('');
+}
+renderSessions();setInterval(renderSessions,1000);
+
+/* ---------- TICKER ---------- */
+let tick={fx:[],cx:[],mt:[]};
+function renderTicker(){
+ const parts=[];
+ tick.cx.slice(0,6).forEach(c=>parts.push(`<span class="tk" onclick="openAsset('crypto','${c.s}')"><b>${c.s}</b> <span class="px">$${fmt(c.p,c.p<2?4:2)}</span> <span class="${chgClass(c.c)}">${pct(c.c)}</span></span>`));
+ tick.mt.forEach(m=>parts.push(`<span class="tk" onclick="openAsset('metal','${m.k}')"><b>${m.s}</b> <span class="px">$${fmt(m.p)}</span></span>`));
+ tick.fx.forEach(f=>parts.push(`<span class="tk" onclick="openAsset('forex','${f.s}')"><b>${f.s}</b> <span class="px">${fmt(f.p,f.p>50?2:4)}</span></span>`));
+ if(parts.length)$('#ticker').innerHTML=(parts.join('')+parts.join(''));
+}
+
+/* ---------- CRYPTO (Coinbase live WebSocket + REST fallbacks) ---------- */
+/* [sym, name, color, geckoId, paprikaId, coinbaseProduct(or null)] */
+const COINS=[
+ ['BTC','Bitcoin','#f7931a','bitcoin','btc-bitcoin','BTC-USD'],
+ ['ETH','Ethereum','#627eea','ethereum','eth-ethereum','ETH-USD'],
+ ['BNB','BNB','#f3ba2f','binancecoin','bnb-binance-coin',null],
+ ['SOL','Solana','#14f195','solana','sol-solana','SOL-USD'],
+ ['XRP','XRP','#5c6bc0','ripple','xrp-xrp','XRP-USD'],
+ ['ADA','Cardano','#0033ad','cardano','ada-cardano','ADA-USD'],
+ ['DOGE','Dogecoin','#c2a633','dogecoin','doge-dogecoin','DOGE-USD'],
+ ['TRX','TRON','#eb0029','tron','trx-tron','TRX-USD'],
+ ['AVAX','Avalanche','#e84142','avalanche-2','avax-avalanche','AVAX-USD'],
+ ['LINK','Chainlink','#2a5ada','chainlink','link-chainlink','LINK-USD']
+];
+function coinBadge(sym,color){return `<span class="coinbadge" style="background:${color}"><img src="https://assets.coincap.io/assets/icons/${sym.toLowerCase()}@2x.png" onerror="this.remove()" alt="">${sym[0]}</span>`;}
+let cxBuilt=false;
+function buildCrypto(){$('#crypto').innerHTML=COINS.map(([s,n,col])=>`<div class="row" data-k="cx-${s}" onclick="openAsset('crypto','${s}')"><div class="a">${coinBadge(s,col)}<div><div class="sym">${s}</div><div class="nm">${n}</div></div></div><div class="price">—</div><div class="chg flat">—</div></div>`).join('');cxBuilt=true;}
+const cxData={}; // sym -> {p, c}
+function pushCrypto(sym,p,c){if(!cxBuilt)buildCrypto();const prev=cxData[sym]||{};cxData[sym]={p:p!=null?p:prev.p,c:c!=null?c:prev.c};const d=cxData[sym];setCell('cx-'+sym,d.p,'$'+fmt(d.p,d.p<2?4:2),d.c);const t=tick.cx.find(x=>x.s===sym);if(t){t.p=d.p;t.c=d.c||0;}else{tick.cx=COINS.filter(x=>cxData[x[0]]).map(x=>({s:x[0],p:cxData[x[0]].p,c:cxData[x[0]].c||0}));}}
+/* REST: fill all coins (initial values + BNB which isn't on Coinbase). Merges from several sources. */
+async function loadCrypto(){
+ let got={};
+ try{const r=await fetch('https://api.coingecko.com/api/v3/simple/price?ids='+COINS.map(c=>c[3]).join(',')+'&vs_currencies=usd&include_24hr_change=true');
+  if(r.ok){const d=await r.json();COINS.forEach(c=>{const x=d[c[3]];if(x&&x.usd!=null)got[c[0]]={p:x.usd,c:x.usd_24h_change||0};});}}catch(e){}
+ await Promise.all(COINS.filter(c=>c[5]&&!got[c[0]]).map(async c=>{try{const d=await fetch('https://api.coinbase.com/v2/prices/'+c[5]+'/spot').then(r=>r.json());if(d.data&&d.data.amount)got[c[0]]={p:parseFloat(d.data.amount),c:(got[c[0]]&&got[c[0]].c)||0};}catch(e){}}));
+ await Promise.all(COINS.filter(c=>!got[c[0]]).map(async c=>{try{const d=await fetch('https://api.coinpaprika.com/v1/tickers/'+c[4]).then(r=>r.json());if(d.quotes&&d.quotes.USD)got[c[0]]={p:d.quotes.USD.price,c:d.quotes.USD.percent_change_24h||0};}catch(e){}}));
+ const keys=Object.keys(got);
+ if(keys.length){keys.forEach(s=>{const c=COINS.find(x=>x[0]===s);if(cbConnected&&c&&c[5])return;/* WebSocket owns streamed coins */pushCrypto(s,got[s].p,got[s].c);});$('#cx-upd').textContent=(cbConnected?'live stream ':'live ')+now();}
+ else{FB.crypto.forEach(([s,n,p,c])=>{if(!cxData[s])pushCrypto(s,p,c);});$('#cx-upd').textContent='connecting…';}
+}
+/* Coinbase WebSocket: true per-second streaming price + 24h change */
+let cbConnected=false,cryptoWS=null;
+function startCryptoWS(){
+ const products=COINS.filter(c=>c[5]).map(c=>c[5]);
+ try{
+  cryptoWS=new WebSocket('wss://ws-feed.exchange.coinbase.com');
+  cryptoWS.onopen=()=>{cbConnected=true;cryptoWS.send(JSON.stringify({type:'subscribe',product_ids:products,channels:['ticker']}));};
+  cryptoWS.onmessage=e=>{try{const m=JSON.parse(e.data);if(m.type==='ticker'&&m.price){const c=COINS.find(x=>x[5]===m.product_id);if(c){const p=parseFloat(m.price);const op=parseFloat(m.open_24h);const ch=op?((p-op)/op*100):null;pushCrypto(c[0],p,ch);$('#cx-upd').textContent='live stream '+now();}}}catch(_){}};
+  cryptoWS.onerror=()=>{try{cryptoWS.close();}catch(_){}};
+  cryptoWS.onclose=()=>{cbConnected=false;setTimeout(startCryptoWS,8000);};
+ }catch(e){cbConnected=false;}
+}
+
+/* ---------- METALS ---------- */
+const METALS=[['XAU','Gold'],['XAG','Silver'],['XPT','Platinum'],['XPD','Palladium']];
+let mtBuilt=false,metalHist={};
+function buildMetals(){$('#metals').innerHTML=METALS.map(([s,n])=>`<div class="row" data-k="mt-${s}" onclick="openAsset('metal','${s}')"><div class="a"><span class="mflag">${FLAGS[s]}</span><div><div class="sym">${n}</div><div class="nm">${s}/USD · spot oz</div></div></div><div class="price">—</div><div class="chg flat">—</div></div>`).join('');mtBuilt=true;}
+let metalBase={};
+function pushMetal(s,n,p){
+ if(metalBase[s]==null)metalBase[s]=p;
+ const ch=(p-metalBase[s])/metalBase[s]*100;
+ setCell('mt-'+s,p,'$'+fmt(p),ch);
+ (metalHist[s]=metalHist[s]||[]).push(p);if(metalHist[s].length>300)metalHist[s].shift();
+ const t=tick.mt.find(x=>x.k===s);if(t)t.p=p;else{tick.mt=METALS.filter(m=>metalHist[m[0]]).map(m=>({s:m[1],k:m[0],p:metalHist[m[0]][metalHist[m[0]].length-1]}));}
+}
+async function loadMetals(){
+ if(!mtBuilt)buildMetals();
+ if(tdMetalsLive)return; // Twelve Data streaming owns metals when a key is active
+ try{
+  const res=await Promise.all(METALS.map(m=>fetch('https://api.gold-api.com/price/'+m[0]).then(r=>r.json()).catch(()=>null)));
+  let any=false;
+  res.forEach((d,i)=>{const[s,n]=METALS[i];if(!d||d.price==null)return;any=true;pushMetal(s,n,d.price);});
+  if(!any)throw 0;$('#mt-upd').textContent='live '+now();renderTicker();
+ }catch(e){
+  METALS.forEach(([s,n])=>{if(metalBase[s]==null){setCell('mt-'+s,FB.metals[s],'$'+fmt(FB.metals[s]),null);const ce=document.querySelector(`[data-k="mt-${s}"] .chg`);if(ce)ce.textContent='sample';}});
+  if(!tick.mt.length)tick.mt=METALS.map(([s,n])=>({s:n,k:s,p:FB.metals[s]}));
+  $('#mt-upd').textContent='reconnecting…';renderTicker();
+ }
+}
+
+/* ---------- FOREX + CONVERTER ---------- */
+let RATES=null,fxBuilt=false;
+const MAJORS=[['EUR','USD'],['GBP','USD'],['USD','JPY'],['USD','CHF'],['USD','CAD'],['AUD','USD'],['NZD','USD']];
+function pairPrice(b,q){return q==='USD'?1/RATES[b]:RATES[q];}
+function buildForex(){$('#forex').innerHTML=MAJORS.map(([b,q])=>{const sym=b+'/'+q;return `<div class="row" data-k="fx-${sym}" onclick="openAsset('forex','${sym}')"><div class="a"><span class="mflag">${FLAGS[b]||'💱'}</span><div><div class="sym">${sym}</div><div class="nm">${CUR_NAMES[b]||b} / ${CUR_NAMES[q]||q}</div></div></div><div class="price">—</div><div class="chg flat">—</div></div>`;}).join('');fxBuilt=true;}
+let fxChg={};
+function ratesFromJsdelivr(d){if(!d||!d.usd)return null;const o={};Object.keys(d.usd).forEach(k=>{const v=d.usd[k];if(typeof v==='number'&&isFinite(v))o[k.toUpperCase()]=v;});return Object.keys(o).length>20?o:null;}
+async function loadForex(){
+ if(!fxBuilt)buildForex();
+ let live=false;
+ // 1) jsDelivr CDN (never blocked, great CORS) — all world currencies
+ try{const d=await fetch('https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json').then(r=>r.json());const o=ratesFromJsdelivr(d);if(o){RATES=o;live=true;}}catch(e){}
+ // 2) mirror
+ if(!live){try{const d=await fetch('https://latest.currency-api.pages.dev/v1/currencies/usd.json').then(r=>r.json());const o=ratesFromJsdelivr(d);if(o){RATES=o;live=true;}}catch(e){}}
+ // 3) er-api
+ if(!live){try{const d=await fetch('https://open.er-api.com/v6/latest/USD').then(r=>r.json());if(d&&d.rates){RATES=d.rates;live=true;}}catch(e){}}
+ if(!RATES)RATES=FB.rates;
+ // daily change (best-effort)
+ try{const end=new Date(),start=new Date(Date.now()-6*864e5);const fd=x=>x.toISOString().slice(0,10);
+  const fr=await fetch(`https://api.frankfurter.dev/v1/${fd(start)}..${fd(end)}?base=USD&symbols=EUR,GBP,JPY,CHF,CAD,AUD,NZD`).then(x=>x.json());
+  const ds=Object.keys(fr.rates||{}).sort();if(ds.length>=2){const l=fr.rates[ds[ds.length-1]],p=fr.rates[ds[ds.length-2]];['EUR','GBP','JPY','CHF','CAD','AUD','NZD'].forEach(c=>{if(l[c]&&p[c])fxChg[c]=(l[c]-p[c])/p[c]*100;});}
+ }catch(e){}
+ buildConverter();
+ if(tdForexLive){return;} // Twelve Data stream owns the forex cells
+ let tk=[];
+ MAJORS.forEach(([b,q])=>{const sym=b+'/'+q;const price=pairPrice(b,q);let ch=0;if(q==='USD')ch=fxChg[b]!=null?-fxChg[b]:0;else ch=fxChg[q]!=null?fxChg[q]:0;
+  setCell('fx-'+sym,price,fmt(price,price>50?3:5),ch);tk.push({s:sym,p:price});});
+ tick.fx=tk;$('#fx-upd').textContent=(live?'live ':'sample ')+now();renderTicker();
+}
+const ISO='AED AFN ALL AMD ANG AOA ARS AUD AWG AZN BAM BBD BDT BGN BHD BIF BMD BND BOB BRL BSD BTN BWP BYN BZD CAD CDF CHF CLP CNY COP CRC CUP CVE CZK DJF DKK DOP DZD EGP ERN ETB EUR FJD FKP GBP GEL GHS GIP GMD GNF GTQ GYD HKD HNL HRK HTG HUF IDR ILS INR IQD IRR ISK JMD JOD JPY KES KGS KHR KMF KRW KWD KYD KZT LAK LBP LKR LRD LSL LYD MAD MDL MGA MKD MMK MNT MOP MRU MUR MVR MWK MXN MYR MZN NAD NGN NIO NOK NPR NZD OMR PAB PEN PGK PHP PKR PLN PYG QAR RON RSD RUB RWF SAR SBD SCR SDG SEK SGD SHP SLE SOS SRD SSP STN SVC SYP SZL THB TJS TMT TND TOP TRY TTD TWD TZS UAH UGX USD UYU UZS VES VND VUV WST XAF XCD XOF XPF YER ZAR ZMW ZWL'.split(' ');
+let convBuilt=false;
+function buildConverter(){
+ if(!RATES)return;const codes=ISO.filter(c=>RATES[c]!=null).sort();
+ if(!convBuilt){const opt=c=>`<option value="${c}">${(FLAGS[c]||'')} ${c}${CUR_NAMES[c]?' · '+CUR_NAMES[c]:''}</option>`;
+  $('#from').innerHTML=codes.map(opt).join('');$('#to').innerHTML=codes.map(opt).join('');
+  $('#from').value='USD';$('#to').value=codes.includes('MYR')?'MYR':'EUR';
+  ['amt','from','to'].forEach(id=>$('#'+id).addEventListener('input',convert));
+  $('#swap').addEventListener('click',()=>{const f=$('#from').value;$('#from').value=$('#to').value;$('#to').value=f;convert();});
+  convBuilt=true;}
+ convert();
+}
+function convert(){if(!RATES)return;const a=parseFloat($('#amt').value)||0,f=$('#from').value,t=$('#to').value;
+ const out=(a/RATES[f])*RATES[t];const rate=RATES[t]/RATES[f];
+ $('#res-amt').value=fmt(out,out<1?6:2);$('#conv-big').textContent=fmt(out,out<1?6:2)+' '+t;$('#conv-rate').textContent=`1 ${f} = ${fmt(rate,rate<1?6:4)} ${t}`;}
+
+/* ---------- NEWS ---------- */
+const PROXIES=['https://api.allorigins.win/raw?url=','https://corsproxy.io/?url=','https://api.codetabs.com/v1/proxy/?quest='];
+const FEEDS=[['https://feeds.marketwatch.com/marketwatch/topstories/','MarketWatch'],['https://www.investing.com/rss/news_25.rss','Investing.com'],['https://www.cnbc.com/id/100003114/device/rss/rss.html','CNBC']];
+function renderNews(items,src){
+ $('#news').innerHTML=items.map((it,i)=>{const title=(it.querySelector('title')?.textContent||'').trim();const date=it.querySelector('pubDate')?.textContent||'';const link=(it.querySelector('link')?.textContent||'').trim();const imp=i<3?'high':i<6?'med':'low';return `<div class="news-item" ${link?`onclick="window.open('${link.replace(/'/g,"%27").replace(/"/g,'')}','_blank','noopener')"`:''}><div class="imp ${imp}"></div><div class="body"><h3>${title}</h3><div class="meta"><span>${src}</span><span>${timeAgo(new Date(date))}</span>${link?'<span>↗ read</span>':''}</div></div></div>`;}).join('');
+ $('#nw-upd').textContent='live '+now();
+}
+async function loadNews(){
+ // 1) Our own serverless proxy (same-origin, reliable) — works on the live site.
+ try{const r=await fetch('/api/news');if(r.ok){const src=r.headers.get('X-News-Source')||'Markets';const xml=new DOMParser().parseFromString(await r.text(),'text/xml');const items=[...xml.querySelectorAll('item')].slice(0,9);if(items.length){renderNews(items,src);return;}}}catch(e){}
+ // 2) Public CORS proxies (fallback, e.g. local file).
+ for(const [f,src] of FEEDS){
+  for(const px of PROXIES){
+   try{const r=await fetch(px+encodeURIComponent(f));if(!r.ok)continue;const xml=new DOMParser().parseFromString(await r.text(),'text/xml');
+    const items=[...xml.querySelectorAll('item')].slice(0,9);
+    if(items.length){renderNews(items,src);return;}
+   }catch(e){}
+  }
+ }
+ const s=[['Dollar steadies as traders weigh Fed rate-path signals ahead of key data','FX Wire','high'],['Gold holds near record as safe-haven demand persists','Metals Desk','high'],['Bitcoin consolidates after volatile session; altcoins mixed','Crypto Wire','med'],['ECB officials signal caution on further policy easing','Europe Desk','med'],['Oil edges higher on supply concerns and geopolitical risk','Commodities','low'],['Asian equities track Wall Street gains; yen weakens','Markets','low'],['UK inflation data in focus as sterling tests resistance','FX Wire','med']];
+ $('#news').innerHTML=s.map(([t,src,i])=>`<div class="news-item"><div class="imp ${i}"></div><div class="body"><h3>${t}</h3><div class="meta"><span>${src}</span><span>live feed offline — sample</span></div></div></div>`).join('');$('#nw-upd').textContent='sample';
+}
+function timeAgo(d){if(isNaN(d))return 'recent';const m=Math.floor((Date.now()-d)/60000);if(m<1)return 'just now';if(m<60)return m+' min ago';const h=Math.floor(m/60);return h<24?h+' hr ago':Math.floor(h/24)+' d ago';}
+
+/* ---------- ECONOMIC CALENDAR (forecast / countdown / actual) ---------- */
+let EVENTS=[]; // {time:Date(UTC), cur, title, impact:'h/m/l', forecast, previous, actual}
+function fallbackEvents(){
+ const n=Date.now();const mk=(offMin,cur,title,imp,fc,pv,act)=>({time:new Date(n+offMin*60000),cur,title,impact:imp,forecast:fc,previous:pv,actual:act});
+ return [
+  mk(-180,'USD','Core Retail Sales m/m','h','0.3%','0.2%','0.5%'),
+  mk(-90,'EUR','German Ifo Business Climate','m','88.5','88.2','88.9'),
+  mk(-35,'GBP','BOE Gov Speaks','h',null,null,'—'),
+  mk(9,'USD','CB Consumer Confidence','h','99.5','100.3',null),
+  mk(48,'USD','New Home Sales','m','680K','670K',null),
+  mk(150,'AUD','CPI y/y','h','2.8%','2.9%',null),
+  mk(320,'CAD','BOC Rate Statement','h',null,null,null),
+  mk(1440,'JPY','BOJ Core CPI y/y','m','1.9%','1.8%',null),
+  mk(1620,'NZD','Official Cash Rate','h','4.25%','4.25%',null),
+  mk(2880,'USD','Advance GDP q/q','h','2.1%','2.0%',null)
+ ];
+}
+/* Parse the real ForexFactory weekly JSON feed. Dates are ISO with an
+   offset (e.g. 2026-08-26T08:30:00-04:00), so new Date() gives correct UTC. */
+function parseFeedJSON(arr){
+ const out=[];
+ arr.forEach(e=>{
+  if(!e || !e.date) return;
+  const t=new Date(e.date); if(isNaN(t)) return;
+  const s=(e.impact||'').toLowerCase();
+  const imp = s.indexOf('high')>=0?'h' : s.indexOf('medium')>=0||s.indexOf('med')>=0?'m' : 'l';
+  out.push({time:t, cur:e.country||'', title:e.title||'', impact:imp,
+   forecast:(e.forecast&&e.forecast.trim())||null, previous:(e.previous&&e.previous.trim())||null,
+   actual:(e.actual&&e.actual.trim())||null});
+ });
+ return out;
+}
+const CAL_URL='https://nfs.faireconomy.media/ff_calendar_thisweek.json';
+async function fetchCalendarJSON(){
+ // 1) Our own serverless proxy (same-origin, reliable) — works on the live site.
+ try{const r=await fetch('/api/calendar');if(r.ok){const a=await r.json();if(Array.isArray(a)&&a.length)return a;}}catch(e){}
+ // 2) Direct (works if the feed is CORS-open).
+ try{const r=await fetch(CAL_URL);if(r.ok){const a=await r.json();if(Array.isArray(a)&&a.length)return a;}}catch(e){}
+ // 3) Public CORS proxies (fallback, e.g. when opened as a local file).
+ for(const px of PROXIES){
+  try{const r=await fetch(px+encodeURIComponent(CAL_URL));if(!r.ok)continue;const a=JSON.parse(await r.text());if(Array.isArray(a)&&a.length)return a;}catch(e){}
+ }
+ return null;
+}
+async function loadCalendar(){
+ const arr=await fetchCalendarJSON();
+ if(arr){
+  const ev=parseFeedJSON(arr).filter(e=>e.impact==='h').sort((a,b)=>a.time-b.time); // HIGH impact only
+  if(ev.length){EVENTS=ev;$('#ca-upd').textContent='High impact · live';renderCalendar();return;}
+ }
+ EVENTS=fallbackEvents().filter(e=>e.impact==='h');$('#ca-upd').textContent='High impact · sample';renderCalendar();
+}
+function localParts(d){const l=new Date(d.getTime()+USER_TZ*3600000);return{day:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][l.getUTCDay()],date:l.getUTCDate(),time:String(l.getUTCHours()).padStart(2,'0')+':'+String(l.getUTCMinutes()).padStart(2,'0'),key:l.getUTCFullYear()+'-'+l.getUTCMonth()+'-'+l.getUTCDate(),label:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][l.getUTCDay()]+' '+l.getUTCDate()};}
+function actClass(act,fc){if(!act||!fc)return '';const a=parseFloat(act),f=parseFloat(fc);if(isNaN(a)||isNaN(f))return '';return a>f?'act-up':a<f?'act-down':'';}
+function renderCalendar(){
+ if(!EVENTS.length){$('#calendar').innerHTML='<div class="loading">No events</div>';return;}
+ const nowT=Date.now();let html='',lastDay='';
+ EVENTS.slice(0,16).forEach((e,gi)=>{const lp=localParts(e.time);
+  if(lp.key!==lastDay){html+=`<div class="cal-day">${lp.label}</div>`;lastDay=lp.key;}
+  const diff=e.time.getTime()-nowT;const mins=diff/60000;
+  let status,soon=false;
+  if(diff>600000){status=`<span class="up">in ${diff>86400000?Math.round(diff/86400000)+'d':diff>3600000?Math.round(diff/3600000)+'h':Math.round(mins)+'m'}</span>`;}
+  else if(diff>0){soon=true;const s=Math.floor(diff/1000);status=`<span class="cd">🔴 ${String(Math.floor(s/60)).padStart(2,'0')}:${String(s%60).padStart(2,'0')}</span>`;}
+  else if(diff>-1800000){status=`<span class="rel">● released</span>`;}
+  else{status=`<span class="up">released</span>`;}
+  const impd={h:'imp-h',m:'imp-m',l:'imp-l'}[e.impact];
+  const figs=[];if(e.actual)figs.push(`<span class="${actClass(e.actual,e.forecast)}">Act ${e.actual}</span>`);if(e.forecast)figs.push(`<b>Fcst</b> ${e.forecast}`);if(e.previous)figs.push(`<b>Prev</b> ${e.previous}`);
+  html+=`<div class="cal-row ${soon?'soon':''}" onclick="openEvent(${gi})"><span class="cal-time">${lp.time}</span><span class="cal-cur">${e.cur}</span><div class="cal-main"><div class="cal-title"><span class="cal-imp ${impd}"></span>${e.title}</div>${figs.length?`<div class="cal-fig">${figs.join('')}</div>`:''}</div><span class="cal-status">${status}</span></div>`;
+ });
+ $('#calendar').innerHTML=html;
+}
+setInterval(()=>{if(EVENTS.length)renderCalendar();},1000);
+
+/* ---------- MODAL / CHART ---------- */
+const mbg=$('#modal-bg');let modalTimer=null;
+function closeModal(){mbg.classList.remove('show');if(modalTimer){clearInterval(modalTimer);modalTimer=null;}}
+$('#modal-close').onclick=closeModal;mbg.onclick=e=>{if(e.target===mbg)closeModal();};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+function drawChart(points,color){
+ if(!points||points.length<2)return '<div class="loading">Not enough data</div>';
+ const W=560,H=220,pad=8;const min=Math.min(...points),max=Math.max(...points);const rng=(max-min)||1;
+ const step=(W-pad*2)/(points.length-1);
+ const pts=points.map((p,i)=>[pad+i*step,H-pad-((p-min)/rng)*(H-pad*2)]);
+ const line=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');
+ const area=line+` L ${pts[pts.length-1][0].toFixed(1)} ${H-pad} L ${pad} ${H-pad} Z`;
+ return `<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${color}" stop-opacity=".35"/><stop offset="1" stop-color="${color}" stop-opacity="0"/></linearGradient></defs><path d="${area}" fill="url(#g)"/><path d="${line}" fill="none" stroke="${color}" stroke-width="2"/></svg>`;
+}
+window.openAsset=async function(type,id){
+ mbg.classList.add('show');const body=$('#modal-body');
+ if(type==='crypto'){
+  const meta=COINS.find(c=>c[0]===id)||[id,id,'#a970ff'];const col=meta[2];
+  $('#modal-title').innerHTML=`${coinBadge(meta[0],col)} ${meta[1]} <span class="mtag">LIVE</span>`;
+  body.innerHTML='<div class="loading"><span class="spin"></span>Loading live chart…</div>';
+  const load=async()=>{
+   let closes=null;
+   try{const d=await fetch(`https://api.coingecko.com/api/v3/coins/${meta[3]}/market_chart?vs_currency=usd&days=1`).then(r=>r.json());if(d.prices&&d.prices.length)closes=d.prices.map(p=>p[1]);}catch(e){}
+   if(!closes&&meta[5]){try{const c=await fetch(`https://api.exchange.coinbase.com/products/${meta[5]}/candles?granularity=900`).then(r=>r.json());if(Array.isArray(c)&&c.length)closes=c.map(x=>x[4]).reverse();}catch(e){}}
+   const live=(tick.cx.find(x=>x.s===meta[0])||{});
+   const price=live.p, ch=live.c;
+   const stat=(closes&&closes.length)?`<div class="s"><div class="l">24h High</div><div class="v">$${fmt(Math.max(...closes))}</div></div><div class="s"><div class="l">24h Low</div><div class="v">$${fmt(Math.min(...closes))}</div></div>`:'';
+   body.innerHTML=`<div class="mstat"><div class="s"><div class="l">Price</div><div class="v" id="mprice">${price!=null?'$'+fmt(price,price<2?4:2):'—'}</div></div><div class="s"><div class="l">24h Change</div><div class="v" style="color:${ch>=0?'var(--up)':'var(--down)'}">${ch!=null?pct(ch):'—'}</div></div>${stat}</div><div class="chartbox"><div style="font-size:11px;color:var(--text-faint);margin-bottom:8px">Last 24 hours</div>${closes?drawChart(closes,col):'<div class="loading">Chart data loading…</div>'}</div><p style="margin-top:14px;font-size:12px">${meta[1]} price in US dollars, streaming live. Prices from global aggregated market data.</p>`;
+  };
+  await load();modalTimer=setInterval(load,15000);
+ }else if(type==='forex'){
+  const [b,q]=id.split('/');$('#modal-title').innerHTML=`${FLAGS[b]||'💱'} ${id} <span class="mtag">30-DAY</span>`;
+  body.innerHTML='<div class="loading"><span class="spin"></span>Loading chart…</div>';
+  try{const end=new Date(),start=new Date(Date.now()-30*864e5);const fd=x=>x.toISOString().slice(0,10);
+   const fr=await fetch(`https://api.frankfurter.dev/v1/${fd(start)}..${fd(end)}?base=${b}&symbols=${q}`).then(r=>r.json());
+   const ds=Object.keys(fr.rates||{}).sort();const series=ds.map(d=>fr.rates[d][q]);
+   const price=RATES?pairPrice(b,q):series[series.length-1];
+   body.innerHTML=`<div class="mstat"><div class="s"><div class="l">Rate</div><div class="v">${fmt(price,price>50?3:5)}</div></div><div class="s"><div class="l">30-day High</div><div class="v">${fmt(Math.max(...series),5)}</div></div><div class="s"><div class="l">30-day Low</div><div class="v">${fmt(Math.min(...series),5)}</div></div></div><div class="chartbox"><div style="font-size:11px;color:var(--text-faint);margin-bottom:8px">${b}/${q} · last 30 days (daily)</div>${drawChart(series,'#7c6bff')}</div><p style="margin-top:14px;font-size:12px">Live spot rates update through the day; the 30-day chart uses official daily reference rates.</p>`;
+  }catch(e){body.innerHTML='<div class="loading">Chart unavailable offline. Open on your live site for full data.</div>';}
+ }else if(type==='metal'){
+  const nm=(METALS.find(m=>m[0]===id)||[id,id])[1];$('#modal-title').innerHTML=`${FLAGS[id]||'🥇'} ${nm} <span class="mtag">LIVE</span>`;
+  const hist=metalHist[id]||[];const price=hist.length?hist[hist.length-1]:FB.metals[id];
+  body.innerHTML=`<div class="mstat"><div class="s"><div class="l">Spot Price</div><div class="v">$${fmt(price)}/oz</div></div><div class="s"><div class="l">Session High</div><div class="v">$${fmt(hist.length?Math.max(...hist):price)}</div></div><div class="s"><div class="l">Session Low</div><div class="v">$${fmt(hist.length?Math.min(...hist):price)}</div></div></div><div class="chartbox"><div style="font-size:11px;color:var(--text-faint);margin-bottom:8px">Live session ticks (${id}/USD)</div>${drawChart(hist.length>1?hist:[price,price],'#ffce54')}</div><p style="margin-top:14px;font-size:12px">${nm} spot price in US dollars per troy ounce, updating live. The chart builds from live ticks while this page stays open.</p>`;
+ }
+};
+
+/* ---------- ECONOMIC EVENT DETAIL ---------- */
+window.openEvent=function(i){
+ const e=EVENTS[i];if(!e)return;
+ const full=new Date(e.time.getTime()+USER_TZ*3600000);
+ const dstr=full.toUTCString().replace('GMT','').trim();
+ const impLabel={h:'🔴 High Impact',m:'🟡 Medium Impact',l:'🔵 Low Impact'}[e.impact];
+ const diff=e.time.getTime()-Date.now();const released=diff<=0;
+ let statusLine;
+ if(diff>600000)statusLine=`Scheduled — releases in ${diff>86400000?Math.round(diff/86400000)+' days':diff>3600000?Math.round(diff/3600000)+' hours':Math.round(diff/60000)+' minutes'}`;
+ else if(diff>0)statusLine=`⏳ Releasing very soon — countdown active on the calendar`;
+ else if(e.actual)statusLine=`✅ Released`;
+ else statusLine=`Awaiting official result…`;
+ const ac=actClass(e.actual,e.forecast);
+ const beat=ac==='act-up'?'above forecast':ac==='act-down'?'below forecast':(e.actual&&e.forecast?'in line with forecast':'');
+ $('#modal-title').innerHTML=`${FLAGS[e.cur]||'📅'} ${e.cur} Event`;
+ $('#modal-body').innerHTML=`
+  <p style="font-size:15px;color:var(--text);font-weight:600;margin-bottom:6px">${e.title}</p>
+  <p style="font-size:12px;color:var(--text-faint);margin-bottom:2px">${impLabel} · ${e.cur}</p>
+  <p style="font-size:12px;color:var(--violet-bright);font-family:'JetBrains Mono'">${dstr} (your time, UTC+8)</p>
+  <div class="evgrid">
+   <div class="c"><div class="l">Actual</div><div class="v ${ac==='act-up'?'':''}" style="color:${ac==='act-up'?'var(--up)':ac==='act-down'?'var(--down)':'var(--text)'}">${e.actual||'—'}</div></div>
+   <div class="c"><div class="l">Forecast</div><div class="v">${e.forecast||'—'}</div></div>
+   <div class="c"><div class="l">Previous</div><div class="v" style="color:var(--text-dim)">${e.previous||'—'}</div></div>
+  </div>
+  <p style="font-size:13px">${statusLine}${beat?` — the actual reading came in <b style="color:${ac==='act-up'?'var(--up)':'var(--down)'}">${beat}</b>.`:''}</p>
+  <h4>How to read this</h4>
+  <p style="font-size:12.5px">Compare the <b>Actual</b> result to the <b>Forecast</b>: a beat or miss often moves the ${e.cur} and related markets. The <b>Previous</b> value shows the prior period's reading, so you can gauge the trend. High-impact ${e.cur} releases tend to cause the sharpest short-term volatility.</p>`;
+ mbg.classList.add('show');
+};
+
+/* ---------- CONTENT PAGES (About/Privacy/Terms/Disclaimer/Contact) ---------- */
+const PAGES={
+ about:['About NEXUS Markets',`<p>NEXUS Markets is a free, independent financial dashboard that brings live prices for cryptocurrencies, precious metals and the world's currencies together in one fast, clean terminal.</p><p>Our goal is simple: give traders, investors and the merely curious a single screen where they can watch Bitcoin, gold, forex majors and an economic-event calendar update in real time — without clutter, pop-ups or paywalls.</p><h4>What you get</h4><p>Real-time crypto prices for Bitcoin and the top digital assets, live spot prices for gold, silver, platinum and palladium, exchange rates for every major world currency, an instant currency converter, market-session hours mapped to your local time, and an economic calendar with forecasts, live countdowns and actual results.</p><h4>Where the data comes from</h4><p>Prices are aggregated from reputable public market-data providers, including Binance for cryptocurrency, and independent exchange-rate and precious-metals feeds for forex and gold. Data refreshes automatically throughout the day.</p><p>NEXUS Markets is an information service only. We are not a broker, exchange or financial adviser, and we never hold client funds.</p>`],
+ privacy:['Privacy Policy',`<p>Your privacy matters to us. This policy explains what information NEXUS Markets collects and how it is used.</p><h4>Information we collect</h4><p>We do not require you to create an account, and we do not ask for personal information to use the dashboard. We may collect anonymous, aggregated usage statistics (such as page views and general location by country) to understand how the site is used and improve it.</p><h4>Cookies and advertising</h4><p>NEXUS Markets uses third-party advertising, including Google AdSense, to keep the site free. Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to this and other websites. Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to this site and/or other sites on the internet.</p><p>You may opt out of personalised advertising by visiting Google's Ads Settings, or opt out of a third-party vendor's use of cookies for personalised advertising at aboutads.info. Users in the EEA/UK are shown a consent choice where required.</p><h4>Third-party data</h4><p>Market prices are fetched directly in your browser from third-party data providers; their own privacy terms apply to those requests.</p><h4>Contact</h4><p>Questions about this policy? Reach us via the Contact page.</p>`],
+ terms:['Terms of Use',`<p>By accessing NEXUS Markets you agree to these terms.</p><h4>Information only</h4><p>All content on this website is provided for general informational purposes only. It does not constitute financial, investment, legal or tax advice, and must not be relied upon as such.</p><h4>No warranty</h4><p>Market data may be delayed, interrupted or contain errors. We do not guarantee the accuracy, completeness or timeliness of any price, figure or economic event shown, and we accept no liability for any loss arising from use of the site.</p><h4>Your responsibility</h4><p>Any decision you make based on information found here is made at your own risk. Always verify data with your broker or an official source and seek advice from a qualified professional before trading or investing.</p><h4>Changes</h4><p>We may update the site and these terms at any time without notice.</p>`],
+ disclaimer:['Risk Disclaimer',`<p><strong>Trading and investing involve substantial risk.</strong></p><p>Foreign exchange, cryptocurrency and commodity trading carry a high level of risk and may not be suitable for all investors. Prices can move rapidly and you could lose some or all of your capital. Leverage magnifies both gains and losses.</p><p>NEXUS Markets does not recommend any specific asset, trade or strategy. Nothing on this site is a solicitation or offer to buy or sell any financial instrument.</p><p>Past performance is not indicative of future results. You should never invest money you cannot afford to lose, and you should consult an independent, licensed financial adviser if you have any doubts.</p>`],
+ contact:['Contact Us',`<p>We'd love to hear from you — whether it's feedback, a data question, an advertising enquiry or a bug report.</p><h4>Email</h4><p><a class="mail" href="mailto:contact@globaltickr.com">contact@globaltickr.com</a></p><h4>Advertising</h4><p>For sponsorship and advertising opportunities, email <a class="mail" href="mailto:ads@globaltickr.com">ads@globaltickr.com</a>.</p><p>We aim to reply to all messages within 2–3 business days.</p>`]
+};
+document.querySelectorAll('footer nav a').forEach(a=>a.addEventListener('click',()=>{
+ const p=PAGES[a.dataset.page];if(!p)return;$('#modal-title').textContent=p[0];$('#modal-body').innerHTML=p[1];mbg.classList.add('show');
+}));
+
+/* ---------- AI ASSISTANT ---------- */
+/* Optional: paste an OpenAI key for free-form answers. NOTE: a key here is
+   visible to visitors — fine for personal use; for a public site route it
+   through your own backend instead. Left empty = built-in smart assistant. */
+const OPENAI_KEY='';
+function coinByQuery(q){for(const c of COINS){if(q.includes(c[0].toLowerCase())||q.includes(c[1].toLowerCase()))return c;}return null;}
+function metalByQuery(q){for(const m of METALS){if(q.includes(m[1].toLowerCase())||q.includes(m[0].toLowerCase()))return m;}return null;}
+function metalPrice(s){const h=metalHist[s];if(h&&h.length)return h[h.length-1];return metalBase[s]!=null?metalBase[s]:FB.metals[s];}
+function sessByQuery(q){for(const s of SESS){const n=s.n.toLowerCase();if(q.includes(n)||q.includes(n.replace(' ',''))||(s.n==='New York'&&/\bny\b/.test(q)))return s;}return null;}
+function assistantAnswer(raw){
+ const q=raw.toLowerCase().trim();if(!q)return "Ask me about any price — try “BTC price”, “convert 100 USD to MYR”, or “is London open?”";
+ let m=q.match(/([\d,.]+)\s*([a-z]{3})\s*(?:to|in|into|=|->)\s*([a-z]{3})/)||q.match(/convert\s*([\d,.]+)\s*([a-z]{3})\s*([a-z]{3})/);
+ if(m&&RATES){const amt=parseFloat(m[1].replace(/,/g,''));const f=m[2].toUpperCase(),t=m[3].toUpperCase();
+  if(RATES[f]&&RATES[t]){const out=(amt/RATES[f])*RATES[t];return `<b>${fmt(amt)} ${f}</b> = <b>${fmt(out,out<1?6:2)} ${t}</b>\n(1 ${f} = ${fmt(RATES[t]/RATES[f],4)} ${t})`;}
+  return `I don't have a rate for ${f} or ${t}. Try USD, EUR, MYR, GBP, JPY…`;}
+ const c=coinByQuery(q);
+ if(c&&(/price|much|worth|rate|value|\?/.test(q)||q.split(/\s+/).length<=2)){const d=cxData[c[0]];if(d&&d.p!=null){return `<b>${c[1]} (${c[0]})</b> is trading at <b>$${fmt(d.p,d.p<2?4:2)}</b>\n24h: <span class="${d.c>=0?'up':'down'}">${pct(d.c||0)}</span>`;}return `${c[1]} price is loading — try again in a moment.`;}
+ const mt=metalByQuery(q);
+ if(mt){const p=metalPrice(mt[0]);return `<b>${mt[1]}</b> spot price: <b>$${fmt(p)}</b> per ounce (${mt[0]}/USD).`;}
+ const fm=q.match(/\b([a-z]{3})\s*\/\s*([a-z]{3})\b/)||q.match(/\b([a-z]{3})([a-z]{3})\b/);
+ if(fm&&RATES){const b=fm[1].toUpperCase(),qc=fm[2].toUpperCase();if(RATES[b]&&RATES[qc]&&b!==qc){const price=RATES[qc]/RATES[b];return `<b>${b}/${qc}</b> = <b>${fmt(price,price>50?3:5)}</b>`;}}
+ const se=sessByQuery(q);
+ if(se){const h=utcNowH();const open=inSession(h,se.o,se.c);const nx=open?hoursUntil(h,se.c):hoursUntil(h,se.o);
+  return `<b>${se.n}</b> is currently <b class="${open?'up':'down'}">${open?'OPEN':'CLOSED'}</b>.\nYour time: ${fmtLocal(se.o)}–${fmtLocal(se.c)}\n${open?'Closes':'Opens'} in ${fmtHMS(nx)}.`;}
+ if(/what.*open|which.*open|markets? open|sessions? open|any.*open/.test(q)){const h=utcNowH();const op=SESS.filter(s=>inSession(h,s.o,s.c)).map(s=>s.n);return op.length?`Currently open: <b>${op.join(', ')}</b>.`:`All major sessions are closed right now.`;}
+ if(/news|event|calendar|release|forecast|data/.test(q)){const up=EVENTS.filter(e=>e.time.getTime()>Date.now()).slice(0,3);if(up.length){return `Upcoming economic events:\n`+up.map(e=>{const lp=localParts(e.time);return `• ${lp.time} ${e.cur} — ${e.title}${e.forecast?` (fcst ${e.forecast})`:''}`;}).join('\n');}return `No upcoming events loaded yet.`;}
+ if(/^(hi|hey|hello|salam|assalam|yo|help)/.test(q)||/what can you|how.*work/.test(q))return `👋 I'm your market assistant. I can give you:\n• Live prices — “BTC price”, “gold price”\n• Conversions — “convert 500 USD to MYR”\n• FX rates — “EUR/USD”\n• Sessions — “is New York open?”\n• “upcoming news”`;
+ if(OPENAI_KEY)return "__OPENAI__";
+ return `I'm not sure about that. I can help with live prices, currency conversion, market sessions and economic news — e.g. “ETH price” or “convert 100 USD to MYR”.`;
+}
+const asst=$('#asst');
+function asstAdd(html,who){const d=document.createElement('div');d.className='abub '+(who||'bot');d.innerHTML=html;$('#asst-msgs').appendChild(d);$('#asst-msgs').scrollTop=$('#asst-msgs').scrollHeight;return d;}
+async function asstSend(text){const q=(text!=null?text:$('#asst-input').value).trim();if(!q)return;asstAdd(q.replace(/</g,'&lt;'),'me');$('#asst-input').value='';
+ const ans=assistantAnswer(q);
+ if(ans==='__OPENAI__'){const node=asstAdd('<span style="opacity:.6">Thinking…</span>','bot');try{const r=await fetch('https://api.openai.com/v1/chat/completions',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+OPENAI_KEY},body:JSON.stringify({model:'gpt-4o-mini',messages:[{role:'system',content:'You are a concise financial markets assistant on the NEXUS Markets dashboard.'},{role:'user',content:q}]})}).then(x=>x.json());node.textContent=r.choices&&r.choices[0]?r.choices[0].message.content:'Sorry, I could not answer that.';}catch(e){node.textContent='AI service is unavailable right now.';}return;}
+ setTimeout(()=>asstAdd(ans,'bot'),160);
+}
+const QUICK=['BTC price','Gold price','100 USD to MYR','Is London open?','Upcoming news'];
+function asstOpen(){asst.classList.add('show');if(!$('#asst-msgs').children.length){asstAdd("👋 Hi! I'm your NEXUS market assistant. Ask me about any live price, currency conversion, market session, or upcoming economic news.",'bot');$('#asst-quick').innerHTML=QUICK.map(q=>`<span class="qchip">${q}</span>`).join('');document.querySelectorAll('.qchip').forEach(ch=>ch.addEventListener('click',()=>asstSend(ch.textContent)));}setTimeout(()=>$('#asst-input').focus(),50);}
+$('#asst-launch').addEventListener('click',()=>{asst.classList.contains('show')?asst.classList.remove('show'):asstOpen();});
+$('#asst-close').addEventListener('click',()=>asst.classList.remove('show'));
+$('#asst-send').addEventListener('click',()=>asstSend());
+$('#asst-input').addEventListener('keydown',e=>{if(e.key==='Enter')asstSend();});
+
+/* ---------- INIT + LIVE LOOPS ---------- */
+loadCrypto();loadMetals();loadForex();loadNews();loadCalendar();startCryptoWS();startTwelveData();
+let sec=0;
+setInterval(()=>{sec++;
+ if(sec%5===0)loadCrypto();     // REST backup — Coinbase WebSocket streams ticks between
+ if(sec%3===0)loadMetals();     // live gold/silver/platinum/palladium — ticks every 3s
+ if(sec%20===0)loadForex();     // FX rates (Twelve Data streams live when a key is set)
+ if(sec%300===0){loadNews();loadCalendar();}
+ $('#refresh-in').textContent='live';
+},1000);
+</script>
+</body>
+</html>
